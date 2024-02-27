@@ -1,0 +1,6444 @@
+{
+	"info": {
+		"_postman_id": "3c080cf6-9b6b-4ae2-9005-2bc3c6f9c80e",
+		"name": "CRM-Y",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29407325",
+		"_collection_link": "https://crimson-escape-673640.postman.co/workspace/CRM-Project~41c71c99-1505-4dc4-86ef-4ee82e07cdf6/collection/29407325-3c080cf6-9b6b-4ae2-9005-2bc3c6f9c80e?action=share&source=collection_link&creator=29407325"
+	},
+	"item": [
+		{
+			"name": "Leads API",
+			"item": [
+				{
+					"name": "Vitali",
+					"item": [
+						{
+							"name": "Get the list of all Leads",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "cursor",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "company_text",
+											"disabled": true
+										},
+										{
+											"key": "descending",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "[{\"key\":\"email_text\", \"constraint_type\":\"equals\", \"value\":\"doc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.io\"}]",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lead by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696677486367x294714768080240640"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"TheFutureIsHere Inc43456\",\n  \"email_text\": \"doc.brown@future.io3452\",\n  \"full_name_text\": \"Emmet Brown3452354\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - no auth",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"TheFutureIsHere Inc\",\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - Only numbers in all fields",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"111222333444555\",\n  \"email_text\": \"111222333444555\",\n  \"full_name_text\": \"111222333444555\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - All fields empty",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"\",\n  \"email_text\": \"\",\n  \"full_name_text\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - E-mail more than 100 symbols",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"TheFutureIsHere Inc6\",\n  \"email_text\": \"doc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.io\",\n  \"full_name_text\": \"Dr. Emmet Brown The 6th\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - No E-mail",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"TheFutureIsHere Inc\",\n  \"full_name_text\": \"Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead with no Full Name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"TheFutureIsHere Inc2\",\n  \"email_text\": \"doc.brown@future.io\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - Full Name more than 50 symbols",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"TheFutureIsHere Inc\",\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"fullname_fullname_fullname_fullname_fullname_fullname_fullname_\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - No Company Name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - Company name more than 50 symbols",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"TheFutureIsHere_TheFutureIsHere_TheFutureIsHere_TheFutureIsHere_TheFutureIsHere_\",\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead data",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"$random_company_text$\",\n  \"email_text\": \"$random_email_text$\",\n  \"full_name_text\": \"$random_full_name_text$\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696677486367x294714768080240640"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead - Change Full Name",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"full_name_text\": \"Emmet Brown999\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead - Change Company Name",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"FutureIsNow Inc99\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694624986688x865480697393621400"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead - Change E-mail",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"doc.brown@future.io\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694708064485x859231868480069000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"FutureIsNow Inc3\",\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"Dr. Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - no auth",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"FutureIsNow Inc3\",\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"Dr. Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - No full name",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"FutureIsNow Inc3\",\n  \"email_text\": \"doc.brown@future.io\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - Full name more than 50 symbols",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"FutureIsNow Inc3\",\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"Dr. Emmet BrownDr. Emmet BrownDr. Emmet BrownDr. Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - E-mail more than 100 symbols",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"FutureIsNow Inc3\",\n  \"email_text\": \"doc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.iodoc.brown@future.io\",\n  \"full_name_text\": \"Dr. Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - No e-mail",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"FutureIsNow Inc3\",\n  \"full_name_text\": \"Dr. Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - Company name more than 50+ symbols",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"FutureIsNow Inc3FutureIsNow Inc3FutureIsNow Inc3FutureIsNow Inc3\",\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"Dr. Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - No Company name",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"doc.brown@future.io\",\n  \"full_name_text\": \"Dr. Emmet Brown\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694453584971x281671486172663000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete lead data",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694814710518x810886960806119600"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete lead data - no auth",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696677673125x801138118979124200"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Kristin",
+					"item": [
+						{
+							"name": "Get the list of all Leads (Kristin)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead?limit=100&cursor=0&sort_field=company_text&descending=false",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "100"
+										},
+										{
+											"key": "cursor",
+											"value": "0"
+										},
+										{
+											"key": "sort_field",
+											"value": "company_text"
+										},
+										{
+											"key": "descending",
+											"value": "false"
+										},
+										{
+											"key": "constraints",
+											"value": "[{ \"key\": \"company_text\", \"constraint_type\": \"equals\", \"value\":\"Adventures\"}]",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lead by ID (Kristin)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694701472900x507004972608317440"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead Kris Company (Kristin)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Kris Company\",\n  \"email_text\": \"kris@gmail.com\",\n  \"full_name_text\": \"Kris Raud\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead No email (Kristin)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Raud Company\",\n  \"full_name_text\": \"Raud Kris\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead NO company name (Kristin)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"kris@kris.com\",\n  \"full_name_text\": \"Kris Raud\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead NO full name (Kristin)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Cris\",\n  \"email_text\": \"Cris@Cris.ee\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead 50+ symbols company text",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Kriskriskriskriskriskriskriskriskriskriskriskriskriskris\",\n  \"email_text\": \"Kris@kris.com\",\n  \"full_name_text\": \"Kris Rock\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead 100+ symbols email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"RaudK\",\n  \"email_text\": \"000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000@hotmail.com\",\n  \"full_name_text\": \"Kristin R\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new lead 50+ symbols full name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Kristin\",\n  \"email_text\": \"Kristin@kristin.com\",\n  \"full_name_text\": \"Kkkkkkkkkkkkkkkkrrrrrrrrriiiiiiiissssssssstttttttiiiiiiiinnnnnn\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead with no info",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"\",\n  \"email_text\": \"\",\n  \"full_name_text\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694706086033x834942776133174900"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead NO full name Kris Company",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Kris Company\",\n  \"email_text\": \"kris@gmail.com\",\n  \"full_name_text\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694706098747x788384350960562200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead NO email Kris Company",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Kris Company\",\n  \"email_text\": \"\",\n  \"full_name_text\": \"Kris Kris\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694706086033x834942776133174900"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead NO company Kris Company",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"\",\n  \"email_text\": \"kris@gmail.com\",\n  \"full_name_text\": \"Kris Kris\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694706086033x834942776133174900"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead by company name Kristin to KristinR",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"KristinR\",\n  \"email_text\": \"Kristin@kristin.com\",\n  \"full_name_text\": \"Kkkkkkkkkkkkkkkkrrrrrrrrriiiiiiiissssssssstttttttiiiiiiiinnnnnn\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694724873661x862901890203282300"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead by email Kristin@kristin.com to .ee",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"KristinR\",\n  \"email_text\": \"Kristin@kristin.ee\",\n  \"full_name_text\": \"Kkkkkkkkkkkkkkkkrrrrrrrrriiiiiiiissssssssstttttttiiiiiiiinnnnnn\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694724873661x862901890203282300"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead by full name Kkkkkkkkkkkkkkkkrrrrrrrrriiiiiiiissssssssstttttttiiiiiiiinnnnnn to Kristin R",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"KristinR\",\n  \"email_text\": \"Kristin@kristin.ee\",\n  \"full_name_text\": \"Kristin R\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694724873661x862901890203282300"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete lead Kris Rock",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694706078329x759107808669670100"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Andre",
+					"item": [
+						{
+							"name": "Get the list of all leads",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead?limit=1",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "1",
+											"description": "Number of items to fetch (maximum is 100). Default value : 50"
+										},
+										{
+											"key": "cursor",
+											"value": "0",
+											"description": "Position to start from in the list. Default value : 0",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "company_text",
+											"description": "Field to sort the list on (for example 'email_text')",
+											"disabled": true
+										},
+										{
+											"key": "descending",
+											"value": "false",
+											"description": "Sorting type: descending or ascending",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "[{ \"key\": \"company_text\", \"constraint_type\": \"equals\", \"value\": \"Bullsnation\" }]",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get lead data by unique Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead/:UniqueID",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694723884873x519575288293552700"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"company_text\": \"Andre OÜ\",\r\n  \"email_text\": \"andre@gmail.com\",\r\n  \"full_name_text\": \"Andre Trahhov\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead No email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Andre OÜ\",\n  \"full_name_text\": \"Andre Trahhov\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead NO company name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"andre@gmail.com\",\n  \"full_name_text\": \"Andre Trahhov\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead NO full name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Andre OÜ\",\n  \"email_text\": \"andre@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead 50+ symbols company text",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"andreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandre\",\n  \"email_text\": \"andre@gmail.com\",\n  \"full_name_text\": \"Andre Trahhov\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead 100+ symbols email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Andre OÜ\",\n  \"email_text\": \"andreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandre\",\n  \"full_name_text\": \"Andre Trahhov\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new lead 50+ symbols full name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Andre OÜ\",\n  \"email_text\": \"andre@gmail.com\",\n  \"full_name_text\": \"andreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandre\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Mofidy lead data",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"company_text\": \"gethacked\",\r\n  \"email_text\": \"gethacked\",\r\n  \"full_name_text\": \"gethacked\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead/:UniqueID?UniqueID=string",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"query": [
+										{
+											"key": "UniqueID",
+											"value": "string"
+										}
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694723884873x519575288293552700",
+											"description": "Unique Id of the lead that you are going to modify."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"company_text\": \"gethacked\",\r\n  \"email_text\": \"gethacked\",\r\n  \"full_name_text\": \"gethacked\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead/:UniqueID",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694723884873x519575288293552700"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete lead data",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/lead/:UniqueID",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694725775050x199671880819319650"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ivan",
+					"item": [
+						{
+							"name": "Get the list of all leads",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get lead by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "integer",
+											"description": "Number of items to fetch (maximum is 100). Default value : 50",
+											"disabled": true
+										},
+										{
+											"key": "cursor",
+											"value": "integer",
+											"description": "Position to start from in the list. Default value : 0",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "string",
+											"description": "Field to sort the list on (for example 'email_text')",
+											"disabled": true
+										},
+										{
+											"key": "descending",
+											"value": "boolean",
+											"description": "Sorting type: descending or ascending",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "string",
+											"description": "Search constraints, stringified array as described here \n [{ \"key\": \"company_text\", \"constraint_type\": \"equals\", \"value\": \"Mighty OÜ\" }]",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get list of leads- no authorisation",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "integer",
+											"description": "Number of items to fetch (maximum is 100). Default value : 50",
+											"disabled": true
+										},
+										{
+											"key": "cursor",
+											"value": "integer",
+											"description": "Position to start from in the list. Default value : 0",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "string",
+											"description": "Field to sort the list on (for example 'email_text')",
+											"disabled": true
+										},
+										{
+											"key": "descending",
+											"value": "boolean",
+											"description": "Sorting type: descending or ascending",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "string",
+											"description": "Search constraints, stringified array as described here \n [{ \"key\": \"company_text\", \"constraint_type\": \"equals\", \"value\": \"Mighty OÜ\" }]",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Hogwarts\",\n  \"email_text\": \"nevillelongbottom@hogwarts.org\",\n  \"full_name_text\": \"Neville Longbottom\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - no email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Hogwarts\",\n  \"full_name_text\": \"Neville Longbottom\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - no name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Hogwarts\",\n  \"email_text\": \"nevillelongbottom@hogwarts.org\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - no company",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"nevillelongbottom@hogwarts.org\",\n  \"full_name_text\": \"Neville Longbottom\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - body is empty",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - all fields empty",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"\",\n  \"email_text\": \"\",\n  \"full_name_text\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - company_text 51 symbols",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \n  \"company_text\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n  \"email_text\": \"nevillelongbottom@hogwarts.org\",\n  \"full_name_text\": \"Neville Longbottom\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - company_text 1000 symbols Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company_text\": \"\",\n    \"company_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non pellentesque nisl, id rutrum nisl. Aliquam sollicitudin at risus eget fringilla. Sed sit amet consectetur diam, faucibus cursus odio. Aliquam libero mauris, efficitur vel ornare eget, facilisis ac arcu. In eu turpis et quam sollicitudin consequat tincidunt vel diam. Vestibulum molestie non erat quis fermentum. Nam sed tincidunt orci. Morbi eu auctor purus. Aliquam suscipit risus a ipsum porttitor, eu sagittis dolor imperdiet. Suspendisse posuere mattis sapien quis pretium. Maecenas consectetur nisl nec aliquam pharetra. Nulla maximus dui egestas ex feugiat condimentum. Nullam eget mauris molestie, imperdiet quam a, hendrerit.\",\n  \"email_text\": \"nevillelongbottom@hogwarts.org\",\n  \"full_name_text\": \"Neville Longbottom\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - email_text 1000 symbols as text",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non pellentesque nisl, id rutrum nisl. Aliquam sollicitudin at risus eget fringilla. Sed sit amet consectetur diam, faucibus cursus odio. Aliquam libero mauris, efficitur vel ornare eget, facilisis ac arcu. In eu turpis et quam sollicitudin consequat tincidunt vel diam. Vestibulum molestie non erat quis fermentum. Nam sed tincidunt orci. Morbi eu auctor purus. Aliquam suscipit risus a ipsum porttitor, eu sagittis dolor imperdiet. Suspendisse posuere mattis sapien quis pretium. Maecenas consectetur nisl nec aliquam pharetra. Nulla maximus dui egestas ex feugiat condimentum. Nullam eget mauris molestie, imperdiet quam a\",\n  \"full_name_text\": \"Neville Longbottom\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new lead - full_name_text 1000 symbols",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company_text\": \"Hogwarts\",\n  \"email_text\":\"hendrerit@gmail.com\",\n  \"full_name_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non pellentesque nisl, id rutrum nisl. Aliquam sollicitudin at risus eget fringilla. Sed sit amet consectetur diam, faucibus cursus odio. Aliquam libero mauris, efficitur vel ornare eget, facilisis ac arcu. In eu turpis et quam sollicitudin consequat tincidunt vel diam. Vestibulum molestie non erat quis fermentum. Nam sed tincidunt orci. Morbi eu auctor purus. Aliquam suscipit risus a ipsum porttitor, eu sagittis dolor imperdiet. Suspendisse posuere mattis sapien quis pretium. Maecenas consectetur nisl nec aliquam pharetra. Nulla maximus dui egestas ex feugiat condimentum. Nullam eget mauris molestie, imperdiet quam a, hendrerit.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										""
+									],
+									"query": [
+										{
+											"key": "Body",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bug? Modify lead - Change Full Name",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n  \"full_name_text\": \"Harry Potter\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead - Change email_text",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"email_text\": \"harrypotter@hogwarts.org\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify lead - Change company_text",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n  \"company_text\": \"hogsmeade \"\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"The Burrow\",\n  \"email_text\": \"lunalovegood@burrow.org\",\n  \"full_name_text\": \"Luna Lovegood\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - no full_name_text",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"The Burrow\",\n  \"email_text\": \"lunalovegood@burrow.org\"\n  \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - full_name_text 100 symbols",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"The Burrow\",\n  \"email_text\": \"lunalovegood@burrow.org\",\n  \"full_name_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non pellentesque nisl, id rutrum nisl. Aliquam sollicitudin at risus eget fringilla. Sed sit amet consectetur diam, faucibus cursus odio. Aliquam libero mauris, efficitur vel ornare eget, facilisis ac arcu. In eu turpis et quam sollicitudin consequat tincidunt vel diam. Vestibulum molestie non erat quis fermentum. Nam sed tincidunt orci. Morbi eu auctor purus. Aliquam suscipit risus a ipsum porttitor, eu sagittis dolor imperdiet. Suspendisse posuere mattis sapien quis pretium. Maecenas consectetur nisl nec aliquam pharetra. Nulla maximus dui egestas ex feugiat condimentum. Nullam eget mauris molestie, imperdiet quam a, hendrerit.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - no email_text",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"The Burrow\",\n  \"full_name_text\": \"Luna Lovegood\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - email_text 200 symbols",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"The Burrow\",\n  \"email_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non pellentesque nisl, id rutrum nisl. Aliquam sollicitudin at risus eget fringilla. Sed sit amet consectetur diam, faucibus cursus odio. Aliquam libero mauris, efficitur vel ornare eget, facilisis ac arcu. In eu turpis et quam sollicitudin consequat tincidunt vel diam. Vestibulum molestie non erat quis fermentum. Nam sed tincidunt orci. Morbi eu auctor purus. Aliquam suscipit risus a ipsum porttitor, eu sagittis dolor imperdiet. Suspendisse posuere mattis sapien quis pretium. Maecenas consectetur nisl nec aliquam pharetra. Nulla maximus dui egestas ex feugiat condimentum. Nullam eget mauris molestie, imperdiet quam a, hendrerit.\",\n  \"full_name_text\": \"Luna Lovegood\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - no company_text",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"lunalovegood@burrow.org\",\n  \"full_name_text\": \"Luna Lovegood\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - company text 100 symbols",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non pellentesque nisl, id rutrum nisl. Aliquam sollicitudin at risus eget fringilla. Sed sit amet consectetur diam, faucibus cursus odio. Aliquam libero mauris, efficitur vel ornare eget, facilisis ac arcu. In eu turpis et quam sollicitudin consequat tincidunt vel diam. Vestibulum molestie non erat quis fermentum. Nam sed tincidunt orci. Morbi eu auctor purus. Aliquam suscipit risus a ipsum porttitor, eu sagittis dolor imperdiet. Suspendisse posuere mattis sapien quis pretium. Maecenas consectetur nisl nec aliquam pharetra. Nulla maximus dui egestas ex feugiat condimentum. Nullam eget mauris molestie, imperdiet quam a, hendrerit.\",\n  \"email_text\": \"lunalovegood@burrow.org\",\n  \"full_name_text\": \"Luna Lovegood\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace lead data - company text 100 symbols Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/lead/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"lead",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694881344612x596011072246798200"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Magicuser API",
+			"item": [
+				{
+					"name": "Kristin",
+					"item": [
+						{
+							"name": "Get a list of all magicusers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser Chris",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"kris@kris.com\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser 100+ email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"chrischrischrischrischrischrischrischrischrischrischrischrischrischrischrischrischrischrischirs@gmail.com\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new magicuser NO email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Vitali",
+					"item": [
+						{
+							"name": "Get the list of magicusers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "cursor",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "Created Date",
+											"disabled": true
+										},
+										{
+											"key": "descending",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "[{\"key\": \"email_text\", \"constraint_type\": \"equals\", \"value\": \"vitali.shapoval@gmail.com\" }]",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the a magicuser by UniqueID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "cursor",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "Created Date",
+											"disabled": true
+										},
+										{
+											"key": "descending",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "[{\"key\": \"email_text\", \"constraint_type\": \"equals\", \"value\": \"mihai.rev@gmail.com\" }]",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696679121812x972719002237548000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"example@example.comsdfasdf\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser - no auth",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"example@example.com\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser - E-mail 100+ symbols",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"example@example.comexample@example.comexample@example.comexample@example.comexample@example.comexample@example.com\",\n  \"link_opened_boolean\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser - No e-mail",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"link_opened_boolean\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser - No link_opened_boolean",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"example@example.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser - create with no body instructions",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify magicuser data",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"vitali.shapoval@gmail.com\",\n    \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696679121812x972719002237548000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify magicuser data - no auth",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"vitali.shapoval@gmail.com\",\n    \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694855907699x481462726668320800"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace magicuser data",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"vitali.shapoval@gmail.comsadfawdf\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696679121812x972719002237548000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace magicuser - empty body",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696679121812x972719002237548000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace magicuser data - no auth",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"vitali.shapoval@gmail.com124542\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696679121812x972719002237548000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a magicuser",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694852684421x504180685344866050"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a magicuser - no auth",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696679121812x972719002237548000"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Andre",
+					"item": [
+						{
+							"name": "Get a list of all magicusers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/magicuser?=",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"magicuser"
+									],
+									"query": [
+										{
+											"key": null,
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the a magicuser by UniqueID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/magicuser:UniqueID",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"magicuser:UniqueID"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "cursor",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "Created Date",
+											"disabled": true
+										},
+										{
+											"key": "descending",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "[{\"key\": \"email_text\", \"constraint_type\": \"equals\", \"value\": \"mihai.rev@gmail.com\" }]",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"andre@gmail.com\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/magicuser",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser 100+ symbols",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"andreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandreandre@gmail.com\",\n  \"link_opened_boolean\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/magicuser",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new magicuser No email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/magicuser",
+									"protocol": "https",
+									"host": [
+										"cerebrumhubcrmlite",
+										"bubbleapps",
+										"io"
+									],
+									"path": [
+										"api",
+										"1.1",
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ivan",
+					"item": [
+						{
+							"name": "Get the list of magicusers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "cursor",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "descending",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the a magicuser by the UniqueID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "cursor",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "sort_field",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "constraints",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694883109147x128163101543661950"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"slytherin@hogwarts.com\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser - no email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser - email_text 200 symbols",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non pellentesque nisl, id rutrum nisl. Aliquam sollicitudin at risus eget fringilla. Sed sit amet consectetur diam, faucibus cursus odio. Aliquam libero mauris, efficitur vel ornare eget, facilisis ac arcu. In eu turpis et quam sollicitudin consequat tincidunt vel diam. Vestibulum molestie non erat quis fermentum. Nam sed tincidunt orci. Morbi eu auctor purus. Aliquam suscipit risus a ipsum porttitor, eu sagittis dolor imperdiet. Suspendisse posuere mattis sapien quis pretium. Maecenas consectetur nisl nec aliquam pharetra. Nulla maximus dui egestas ex feugiat condimentum. Nullam eget mauris molestie, imperdiet quam a, hendrerit.\",\n  \"link_opened_boolean\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser - link_opened_boolean - string text",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"slytherin@hogwarts.com\",\n  \"link_opened_boolean\": \"This is a string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser -email_text - bollean",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": true,\n  \"link_opened_boolean\": \"This is a string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new magicuser -link_opened_boolean - true",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"slytherin@hogwarts.com\",\n  \"link_opened_boolean\": true\n  \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace magicuser data - email_text",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email_text\": \"gryffindor@hogwarts.com\"\n  \n  \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696679121812x972719002237548000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replace magicuser data - link_opened_boolean value",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n  \"link_opened_boolean\": false\n  \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1696679121812x972719002237548000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete magicuser",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n  \"link_opened_boolean\": false\n  \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEurl}}/obj/magicuser/:UniqueID",
+									"host": [
+										"{{BASEurl}}"
+									],
+									"path": [
+										"obj",
+										"magicuser",
+										":UniqueID"
+									],
+									"variable": [
+										{
+											"key": "UniqueID",
+											"value": "1694883016827x489444693612752800"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Funnels and Stages API",
+			"item": [
+				{
+					"name": "Funnels API",
+					"item": [
+						{
+							"name": "Vitali",
+							"item": [
+								{
+									"name": "Get the list of all funnels",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/funnel",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"funnel"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "25",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "false",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "[ { \"key\": \"name_text\", \"constraint_type\": \"equals\", \"value\": \"Offers funnel\" } ]",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get funnel data by UniqueID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/funnel/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"funnel",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new funnel",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"members_list_user\": [\n    \"What is this?\"\n  ],\n  \"name_text\": \"FutureMustBeCool\",\n  \"stage_list_custom_stage\": [\n    \"string1\",\n    \"string2\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/funnel",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"funnel"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Kristin",
+							"item": [
+								{
+									"name": "Get the list of all funnels",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/funnel?limit=100&cursor=0&sort_field=name_text&descending=true",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"funnel"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100"
+												},
+												{
+													"key": "cursor",
+													"value": "0"
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text"
+												},
+												{
+													"key": "descending",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get funnel by UniqueID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/funnel/:UniqueID",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"funnel",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1694879623653x163319467984226900"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new funnel Project K",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"members_list_user\": [\n    \"\",\n    \"\"\n  ],\n  \"name_text\": \"Project K\",\n  \"stage_list_custom_stage\": [\n    \"\",\n    \"\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/funnel",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"funnel"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Stages API",
+					"item": [
+						{
+							"name": "Vitali",
+							"item": [
+								{
+									"name": "Get the list of all stages",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/stage",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"stage"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "25",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "deals_list_custom_deal1",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "false",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the stage by UniqueID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/stage/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"stage",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1625047818390x664413796313397600"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new stage",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"color_option_colors\": \"Orange\",\n  \"deals_list_custom_deal1\": [\n    \"1625048131815x332253337528303600\"\n  ],\n  \"funnel_custom_funnel1\": \"string\",\n  \"name_text\": \"Emmet Brown\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/stage",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"stage"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Deals and Notes API",
+			"item": [
+				{
+					"name": "Deals API",
+					"item": [
+						{
+							"name": "Vitali",
+							"item": [
+								{
+									"name": "Get the list of all deals",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "5",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "false",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the deal by UniqueID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696675400716x727535872388507300"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new deal",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignee__user\": \"1625051658962x581289845978797800\",\n  \"company_name_text\": \"Team5_Vitali001\",\n  \"deal_value_estimation_number\": 12500,\n  \"description_text\": \"Description text 001\",\n  \"funnel_custom_funnel1\": \"1678718042244x598870217126314000\",\n  \"lead_custom_lead\": \"1694453584971x281671486172663000\",\n  \"name_text\": \"Team5_Vitali_nametext\",\n  \"order_number\": 999,\n  \"stage_custom_stage\": \"1625047818390x664413796313397600\",\n  \"status_option_status\": \"In progress\",\n  \"visible_to_list_user\": [\n    \"1625051658962x581289845978797800\",\n    \"1625047373081x778685405315052900\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new deal - no auth",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignee__user\": \"1625051658962x581289845978797800\",\n  \"company_name_text\": \"Team5_Vitali001\",\n  \"deal_value_estimation_number\": 12500,\n  \"description_text\": \"Description text 001\",\n  \"funnel_custom_funnel1\": \"1678718042244x598870217126314000\",\n  \"lead_custom_lead\": \"1694453584971x281671486172663000\",\n  \"name_text\": \"Team5_Vitali_nametext\",\n  \"order_number\": 999,\n  \"stage_custom_stage\": \"1625047818390x664413796313397600\",\n  \"status_option_status\": \"In progress\",\n  \"visible_to_list_user\": [\n    \"1625051658962x581289845978797800\",\n    \"1625047373081x778685405315052900\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new deal with no information entered (empty body)",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new deal with a non-existent user",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignee__user\": \"0001112223334x445556667778889990\",\n  \"company_name_text\": \"Team5_Vitali001\",\n  \"deal_value_estimation_number\": 12500,\n  \"description_text\": \"Description text 001\",\n  \"funnel_custom_funnel1\": \"1678718042244x598870217126314000\",\n  \"lead_custom_lead\": \"1694453584971x281671486172663000\",\n  \"name_text\": \"Team5_Vitali_nametext\",\n  \"order_number\": 999,\n  \"stage_custom_stage\": \"1625047818390x664413796313397600\",\n  \"status_option_status\": \"In progress\",\n  \"visible_to_list_user\": [\n    \"1625051658962x581289845978797800\",\n    \"1625047373081x778685405315052900\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new deal - end-to-end test case DETRCK001",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignee__user\": \"1694855921391x242265296156084500\",\n  \"company_name_text\": \"Team5_Vitali_DETRCK001\",\n  \"deal_value_estimation_number\": 10000,\n  \"description_text\": \"Description text 001\",\n  \"funnel_custom_funnel1\": \"1696532730887x427956826744291300\",\n  \"lead_custom_lead\": \"1694453584971x281671486172663000\",\n  \"name_text\": \"Team5_Vitali_end-to-end-case-DETRCK001\",\n  \"order_number\": 999,\n  \"stage_custom_stage\": \"1625047818390x664413796313397600\",\n  \"status_option_status\": \"In progress\",\n  \"visible_to_list_user\": [\n    \"1696659261091x541239446325940200\",\n    \"1694855921391x242265296156084500\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Replace deal data",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignee__user\": \"1696659261091x541239446325940200\",\n  \"company_name_text\": \"Team5_Vitali_DETRCK001\",\n  \"deal_value_estimation_number\": 10000,\n  \"description_text\": \"Description text 001\",\n  \"funnel_custom_funnel1\": \"1678718042244x598870217126314000\",\n  \"lead_custom_lead\": \"1694453584971x281671486172663000\",\n  \"name_text\": \"Team5_Vitali_end-to-end-case-DETRCK001\",\n  \"order_number\": 999,\n  \"stage_custom_stage\": \"1678718044370x984027857489220300\",\n  \"status_option_status\": \"In progress\",\n  \"visible_to_list_user\": [\n    \"1696659261091x541239446325940200\",\n    \"1696623122515x459534323140025300\",\n    \"1696156220644x114818140430645420\",\n    \"1695586307508x340107674273189900\",\n    \"1694238282399x397816817031822800\",\n    \"1678553628032x545161548577400800\",\n    \"1658145123067x157867491350963230\",\n    \"1657897085311x920666300518670800\",\n    \"1625125825767x718816571317085800\",\n    \"1625047362532x398219546419355650\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696675400716x727535872388507300"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Replace deal data - no auth",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignee__user\": \"1625051658962x581289845978797800\",\n  \"company_name_text\": \"Team5_Vitali001\",\n  \"deal_value_estimation_number\": 256256,\n  \"description_text\": \"Description text 001\",\n  \"funnel_custom_funnel1\": \"1678718042244x598870217126314000\",\n  \"lead_custom_lead\": \"1694453584971x281671486172663000\",\n  \"name_text\": \"Team5_Vitali_nametext\",\n  \"order_number\": 998,\n  \"stage_custom_stage\": \"1625047818390x664413796313397600\",\n  \"status_option_status\": \"In progress\",\n  \"visible_to_list_user\": [\n    \"1625051658962x581289845978797800\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695992165666x133696106796030500"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Replace deal data with nothing - empty body",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695992165666x133696106796030500"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modify deal data",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"deal_value_estimation_number\": 9999,\n  \"description_text\": \"Modified text with PATCH\",\n  \"order_number\": 256,\n  \"status_option_status\": \"Won\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695992165666x133696106796030500"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modify deal data - no values in fields",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"deal_value_estimation_number\": ,\n  \"description_text\": \"\",\n  \"order_number\": ,\n  \"status_option_status\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695992165666x133696106796030500"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modify deal data - no auth",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"deal_value_estimation_number\": 9999,\n  \"description_text\": \"Modified text with PATCH\",\n  \"order_number\": 256,\n  \"status_option_status\": \"Won\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695992165666x133696106796030500"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modify deal data - integers instead of strings",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"company_name_text\": 12345,\n  \"description_text\": 678910,\n  \"name_text\": 11121314\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695992165666x133696106796030500"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Kristin",
+							"item": [
+								{
+									"name": "Get the list of all deals",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=100&cursor=0&descending=true&sort_field=name_text",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100"
+												},
+												{
+													"key": "cursor",
+													"value": "0"
+												},
+												{
+													"key": "descending",
+													"value": "true"
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals no auth BUG",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=100&cursor=0&descending=true&sort_field=name_text",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100"
+												},
+												{
+													"key": "cursor",
+													"value": "0"
+												},
+												{
+													"key": "descending",
+													"value": "true"
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals no auth2",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "0",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "true",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - sort-field assignee__user",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?sort_field=assignee__user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "sort_field",
+													"value": "assignee__user"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - sort-field name_text",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?sort_field=name_text",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "sort_field",
+													"value": "name_text"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - sort-field deal_value_estimation_number",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?sort_field=deal_value_estimation_number",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "sort_field",
+													"value": "deal_value_estimation_number"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - sort-field description_text",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?sort_field=description_text",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "sort_field",
+													"value": "description_text"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - sort-field logo_image",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?sort_field=logo_image&limit=20&cursor=17",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "sort_field",
+													"value": "logo_image"
+												},
+												{
+													"key": "limit",
+													"value": "20"
+												},
+												{
+													"key": "cursor",
+													"value": "17"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - sort-field status_option_status",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?sort_field=status_option_status&limit=10&cursor=11",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "sort_field",
+													"value": "status_option_status"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												},
+												{
+													"key": "cursor",
+													"value": "11"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - sort-field namename",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?sort_field=namename",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "sort_field",
+													"value": "namename"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - limit default (50)",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=50",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "50"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - limit max (100)",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=100",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - limit 101",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=-1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "-1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - limit exceeded",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=200",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "200"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - limit negative BUG",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=-1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "-1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - limit not inserted",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": ""
+												},
+												{
+													"key": "cursor",
+													"value": "0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - UniqueID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695910122321x948298569517539000"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - UniqueID 2",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695911376675x958509358206083700"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - cursor default (0)",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=50&cursor=0&sort_field=name_text&descending=true",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "50"
+												},
+												{
+													"key": "cursor",
+													"value": "0"
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text"
+												},
+												{
+													"key": "descending",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - cursor valid value (50)",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=100&cursor=50&sort_field=name_text&descending=true",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100"
+												},
+												{
+													"key": "cursor",
+													"value": "50"
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text"
+												},
+												{
+													"key": "descending",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - cursor negative value (-1)",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=100&cursor=-1&sort_field=name_text&descending=true",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100"
+												},
+												{
+													"key": "cursor",
+													"value": "-1"
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text"
+												},
+												{
+													"key": "descending",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - cursor more than deals exist",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?limit=100&cursor=200&sort_field=name_text&descending=true",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100"
+												},
+												{
+													"key": "cursor",
+													"value": "200"
+												},
+												{
+													"key": "sort_field",
+													"value": "name_text"
+												},
+												{
+													"key": "descending",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - deal Hockey",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?constraints=[{\"key\": \"company_name_text\", \"constraint_type\": \"equals\", \"value\": \"Hockey\"}]",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "constraints",
+													"value": "[{\"key\": \"company_name_text\", \"constraint_type\": \"equals\", \"value\": \"Hockey\"}]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - deal not existing",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?constraints=[{\"key\": \"company_name_text\", \"constraint_type\": \"equals\", \"value\": \"Huugabuuga\"}]",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "constraints",
+													"value": "[{\"key\": \"company_name_text\", \"constraint_type\": \"equals\", \"value\": \"Huugabuuga\"}]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - deals Won",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?constraints=[{\"key\": \"status_option_status\", \"constraint_type\": \"equals\", \"value\": \"Won\" }]",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "constraints",
+													"value": "[{\"key\": \"status_option_status\", \"constraint_type\": \"equals\", \"value\": \"Won\" }]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - deals Lost",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?constraints=[{\"key\": \"status_option_status\", \"constraint_type\": \"equals\", \"value\": \"Lost\" }]",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "constraints",
+													"value": "[{\"key\": \"status_option_status\", \"constraint_type\": \"equals\", \"value\": \"Lost\" }]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - deals In progress",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?constraints=[{\"key\": \"status_option_status\", \"constraint_type\": \"equals\", \"value\": \"In progress\" }]",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "constraints",
+													"value": "[{\"key\": \"status_option_status\", \"constraint_type\": \"equals\", \"value\": \"In progress\" }]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the list of all deals - deals non-existing option",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal?constraints=[{\"key\": \"status_option_status\", \"constraint_type\": \"equals\", \"value\": \"In sorting\" }]",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											],
+											"query": [
+												{
+													"key": "constraints",
+													"value": "[{\"key\": \"status_option_status\", \"constraint_type\": \"equals\", \"value\": \"In sorting\" }]"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new deal Team5",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignee__user\": \"1625047362532x398219546419355650\",\n  \"company_name_text\": \"Kris Company\",\n  \"deal_value_estimation_number\": 3500,\n  \"name_text\": \"Team5\",\n  \"order_number\": 1,\n  \"status_option_status\": \"In progress\",\n  \"visible_to_list_user\": [\n    \"1625047362532x398219546419355650\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a new deal Team5 (will be deleted)",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"assignee__user\": \"1625047362532x398219546419355650\",\n  \"company_name_text\": \"Kris Company for deletion\",\n  \"deal_value_estimation_number\": 3500,\n  \"name_text\": \"Team5\",\n  \"order_number\": 1,\n  \"status_option_status\": \"In progress\",\n  \"visible_to_list_user\": [\n    \"1625047362532x398219546419355650\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete deal",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/deal/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"deal",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1695911376675x958509358206083700"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Notes API",
+					"item": [
+						{
+							"name": "Ivan",
+							"item": [
+								{
+									"name": "NA001 - GET the list of all notes",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/note",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"note"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "5",
+													"disabled": true
+												},
+												{
+													"key": "_id",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA005 - Unauthorized Access",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/note",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA002, 007 GET note Data by Unique ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/note/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696530234663x767494936742294000"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA003 Read a List of All Notes and Sort by Creation Date",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/obj/note?sort_field=Created Date",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "Created Date"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA007 Create a New Note and check the created object.",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": " {\n  \"content_text\": \"This is test for Dobby\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/note",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA008 Attempt to Create a Note with Missing content_text.",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"content_text\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/note",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA009 - Create a new note without authorization.",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"content_text\": \"There is no Dumledore\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/note",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA010 - Modify existing note",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"content_text\": \"Tom Riddle is back\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/note/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696529731976x285497826933983170"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA011 - Modify a note that doesn’t exist.",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"content_text\": \"Peter Pettigrew is no real\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/note/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696529731976x285497826933983188"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "NA012 - Modify a note without body content.",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/obj/note/:UniqueID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "integer",
+													"description": "Number of items to fetch (maximum is 100). Default value : 50",
+													"disabled": true
+												},
+												{
+													"key": "cursor",
+													"value": "integer",
+													"description": "Position to start from in the list. Default value : 0",
+													"disabled": true
+												},
+												{
+													"key": "sort_field",
+													"value": "string",
+													"description": "Field to sort the list on (for example 'email_text')",
+													"disabled": true
+												},
+												{
+													"key": "descending",
+													"value": "boolean",
+													"description": "Sorting type: descending or ascending",
+													"disabled": true
+												},
+												{
+													"key": "constraints",
+													"value": "string",
+													"description": "Search constraints, stringified array as described here",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696530234663x767494936742294000"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Andre",
+							"item": [
+								{
+									"name": "Get note by UniqueID",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/note/:UniqueID",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696351386094x884179707383921300"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Replace deal data",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"content_text\": \"TEAM5\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/note/:UniqueID",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696351386094x884179707383921300"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Replace deal data - no auth",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"content_text\": \"TEAM5\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/note/:UniqueID",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696351386094x884179707383921300"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create new note",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "b30ca93d0a7ebe389e9326a22497bf38",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content_text\": \"TEAM5\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/note",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"note"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete note",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/note/:UniqueID",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696351386094x884179707383921300"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete note - no auth",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1/obj/note/:UniqueID",
+											"protocol": "https",
+											"host": [
+												"cerebrumhubcrmlite",
+												"bubbleapps",
+												"io"
+											],
+											"path": [
+												"api",
+												"1.1",
+												"obj",
+												"note",
+												":UniqueID"
+											],
+											"variable": [
+												{
+													"key": "UniqueID",
+													"value": "1696351386094x884179707383921300"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User API",
+			"item": [
+				{
+					"name": "Get list of all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/obj/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"obj",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a user by UniqueID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/obj/user/:UniqueID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"obj",
+								"user",
+								":UniqueID"
+							],
+							"variable": [
+								{
+									"key": "UniqueID",
+									"value": "1625051658962x581289845978797800"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "b30ca93d0a7ebe389e9326a22497bf38",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "{{baseUrl}}",
+			"value": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1",
+			"type": "string"
+		},
+		{
+			"key": "BASEurl",
+			"value": "https://cerebrumhubcrmlite.bubbleapps.io/api/1.1"
+		}
+	]
+}
